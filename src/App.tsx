@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Layout from "./Layout";
+import Layout from "./pages/Layout";
 import RequireAuth from "./auth/RequireAuth";
 import Login from "./pages/Login";
 import Fornitori from "./pages/Fornitori";
