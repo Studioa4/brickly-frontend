@@ -1,0 +1,1 @@
+export default function Catasto() { return <div className="text-xl">📍 Pagina Catasto</div> }
