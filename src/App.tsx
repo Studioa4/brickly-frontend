@@ -1,33 +1,39 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Login from './pages/Login'
-import Layout from './pages/Layout'
-import Catasto from './pages/Catasto'
-import Fornitori from './pages/Fornitori'
-import Province from './pages/Province'
-import Comuni from './pages/Comuni'
-import Utenti from './pages/Utenti'
-import RequireAuth from './components/RequireAuth'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Layout from "./Layout";
+import RequireAuth from "./auth/RequireAuth";
+import Login from "./pages/Login";
+import Fornitori from "./pages/Fornitori";
+import Catasto from "./pages/Catasto";
+import Province from "./pages/Province";
+import Comuni from "./pages/Comuni";
+import Utenti from "./pages/Utenti";
+import Widget from "./pages/Widget";
 
-export default function App() {
+function App() {
   return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route
-        path="/"
-        element={
-          <RequireAuth>
-            <Layout />
-          </RequireAuth>
-        }
-      >
-        <Route path="catasto" element={<Catasto />} />
-        <Route path="fornitori" element={<Fornitori />} />
-        <Route path="province" element={<Province />} />
-        <Route path="comuni" element={<Comuni />} />
-        <Route path="utenti" element={<Utenti />} />
-        <Route index element={<></>} />
-      </Route>
-    </Routes>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+
+        <Route
+          path="/"
+          element={
+            <RequireAuth>
+              <Layout />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<Navigate to="/widget" replace />} />
+          <Route path="fornitori" element={<Fornitori />} />
+          <Route path="catasto" element={<Catasto />} />
+          <Route path="province" element={<Province />} />
+          <Route path="comuni" element={<Comuni />} />
+          <Route path="utenti" element={<Utenti />} />
+          <Route path="widget" element={<Widget />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
+
+export default App;
