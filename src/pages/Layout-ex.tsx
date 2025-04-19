@@ -71,14 +71,6 @@ export default function Layout() {
       </div>
 
       {/* Contenuto centrale */}
-
-        <header className="bg-white border-b p-4 flex justify-center items-center shadow-sm relative">
-          <h1 className="text-3xl font-extrabold text-gray-800 text-center">BRICKLY</h1>
-          <div className="absolute right-4 top-1/2 -translate-y-1/2">
-            <UserMenu />
-          </div>
-        </header>
-
       <main className="flex-1 p-6 bg-gray-100 dark:bg-gray-800 text-black dark:text-white overflow-auto">
         <Outlet />
       </main>
