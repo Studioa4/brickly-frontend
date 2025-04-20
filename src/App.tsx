@@ -11,7 +11,6 @@ import Widget from "./pages/Widget";
 
 function App() {
   return (
-    <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
 
@@ -32,7 +31,6 @@ function App() {
           <Route path="widget" element={<Widget />} />
         </Route>
       </Routes>
-    </BrowserRouter>
   );
 }
 
